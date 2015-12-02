@@ -1,0 +1,449 @@
+﻿h<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="All_Liberia.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %>All-Liberia.com</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <link href="Content/Site.css" rel="stylesheet" />
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="Scripts/jquery.skitter.min.js"></script>
+    <script type="text/javascript" src="Scripts/jquery.easing.1.3.js"></script>
+    <script src="Scripts/WebForms/jquery-accessibleMegaMenu.js"></script>
+    <script src="Scripts/jquery.cluetip.js"></script>
+    <script src="Scripts/jquery.cluetip.min.js"></script>
+    <script src="Scripts/jquery.movingboxes.min.js"></script>
+    <script src="Scripts/jquery.easing.1.3.js"></script>
+
+</head>
+<body>
+
+     <script type="text/javascript">
+         $(function () {
+             $(".dropdown").hover(
+                function () { $('.dropdown-menu',this).fadeIn("fast");                        
+                },
+                function () { $('.dropdown-menu',this).fadeOut("slow");                        
+                });
+             
+         });
+    </script>
+
+
+     <div style="width:100%; background-color:maroon;height:5px; margin-top:0;position:fixed;"></div>
+    <form runat="server">    
+        
+         <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="respond" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+        `W21    
+         
+
+        <div class="navbar navbar-inverse navbar-fixed-top" style="height: 100px;">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+
+                    <a class="navbar-brand" runat="server" href="~/Default.aspx">
+
+                        <asp:Image ID="SiteLogo" runat="server" ImageUrl="~/Content/Images/Logo/siteLogo.png" /></a>-->
+                &nbsp;
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a runat="server" href="~/">Home</a></li>
+                        <li><a runat="server" href="~/About">About Us</a></li>
+                        <li><a runat="server" href="~/Contact">Contact</a></li>
+                        <li><a runat="server" href="~/Blog.aspx">Blog</a></li>
+                        <li><a runat="server" href="~/Forum.aspx">Forum</a></li>
+
+                        <li>
+
+                            <div style="margin-top: 15px;">
+                                <iframe id="IFGoogleSearch" src="GoogleSearchScript.html"
+                                    frameborder="0" scrolling="no"
+                                    style="padding-top: 0px; height: 23px; width: 300px; margin: auto;"></iframe>
+                            </div>
+                                              <%--http://tunein.com/radio/Radio-Lib-s119683/--%>
+
+
+                        </li>
+
+                    </ul>
+
+
+                    <asp:LoginView runat="server" ViewStateMode="Disabled">
+                        <AnonymousTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a runat="server" href="~/Account/Register">Register</a></li>
+                                <li><a runat="server" href="~/Account/Login">Log in</a></li>
+                            </ul>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+
+                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
+                                <li>
+                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                </li>
+                            </ul>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                </div>
+
+            </div>
+
+        </div>
+
+<!-- Test nav bar -->
+
+<nav class="navbar navbar-default" role="navigation" style="top:20px; z-index:200;">
+  <div class="container-fluid">
+ 
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">History <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu" style="width:1180px;">
+            <li><h3>Liberian History</h3>
+
+
+                <!-- dropdown menu -->
+               <div id="gallery2" style="width:100%">
+                                <div style="float: left; padding: 5px;">
+                                    <a href="Content/Images/Liberia/travLiberia.jpg">
+                                        <img src="Content/Images/Liberia/travThumbnail1.jpg" title="Resort" /></a>
+                                </div>
+                                <div style="float: left; padding: 5px;">
+                                    <a href="Content/Images/Liberia/bella_casa.jpg">
+                                        <img src="Content/Images/Liberia/bella_casaThumb.jpg" title="Resort" /></a>
+                                </div>
+                                <div style="float: left; padding: 5px;">
+                                    <a href="Content/Images/Liberia/travLiberiaFirst.jpg">
+                                        <img src="Content/Images/Liberia/travThumbnail2.jpg" title="Resort" /></a>
+                                </div>
+                                <div style="float: left; padding-left: 25px; padding-right: 25px;">
+                                    <ul>
+                                        <li><a href="#">Sport cars</a></li>
+                                        <li><a href="#">Trucks</a></li>
+                                        <li><a href="#">Convertables</a></li>
+                                        <li><a href="#">Pickups</a></li>
+                                        <li><a href="#">Buses</a></li>
+                                        <li><a href="#">Trailers</a></li>
+                                        <li><a href="#">Sport Utilities</a></li>
+                                        <li><a href="#">Vans</a></li>
+                                    </ul>
+
+                                </div>
+                    <div style="float: left; padding-left: 25px; padding-right: 25px;">
+                                    <ul>
+                                        <li><a href="#">Sport cars</a></li>
+                                        <li><a href="#">Trucks</a></li>
+                                        <li><a href="#">Convertables</a></li>
+                                        <li><a href="#">Pickups</a></li>
+                                        <li><a href="#">Buses</a></li>
+                                        <li><a href="#">Trailers</a></li>
+                                        <li><a href="#">Sport Utilities</a></li>
+                                        <li><a href="#">Vans</a></li>
+                                    </ul>
+
+                                </div>
+                    <div style="float: left; padding-left: 25px; padding-right: 25px;">
+                                    <ul>
+                                        <li><a href="#">Sport cars</a></li>
+                                        <li><a href="#">Trucks</a></li>
+                                        <li><a href="#">Convertables</a></li>
+                                        <li><a href="#">Pickups</a></li>
+                                        <li><a href="#">Buses</a></li>
+                                        <li><a href="#">Trailers</a></li>
+                                        <li><a href="#">Sport Utilities</a></li>
+                                        <li><a href="#">Vans</a></li>
+                                    </ul>
+
+                                </div>
+
+                                
+                   </div>
+
+                    <!-- test end -->
+
+            
+          </ul>
+        </li>
+      </ul>      
+  <ul class="nav navbar-nav">
+        
+        <li class="dropdown" >
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Geography <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu" style="width:1100px; background-color:maroon;">
+            <li><h3>Liberian Geography</h3>
+
+
+                <!-- dropdown menu -->
+               <div id="gallery3" >
+                                <div style="float: left; padding: 5px;">
+                                    <a href="Content/Images/Liberia/travLiberia.jpg">
+                                        <img src="Content/Images/Liberia/travThumbnail1.jpg" title="Resort" /></a>
+                                </div>
+                                <div style="float: left; padding: 5px;">
+                                    <a href="Content/Images/Liberia/bella_casa.jpg">
+                                        <img src="Content/Images/Liberia/bella_casaThumb.jpg" title="Resort" /></a>
+                                </div>
+                                <div style="float: left; padding: 5px;">
+                                    <a href="Content/Images/Liberia/travLiberiaFirst.jpg">
+                                        <img src="Content/Images/Liberia/travThumbnail2.jpg" title="Resort" /></a>
+                                </div>
+                                <div style="float: left; padding-left: 25px; padding-right: 25px;">
+                                    <ul>
+                                        <li><a href="#">Sport cars</a></li>
+                                        <li><a href="#">Trucks</a></li>
+                                        <li><a href="#">Convertables</a></li>
+                                        <li><a href="#">Pickups</a></li>
+                                        <li><a href="#">Buses</a></li>
+                                        <li><a href="#">Trailers</a></li>
+                                        <li><a href="#">Sport Utilities</a></li>
+                                        <li><a href="#">Vans</a></li>
+                                    </ul>
+
+                                </div>
+                    <div style="float: left; padding-left: 25px; padding-right: 25px;">
+                                    <ul>
+                                        <li><a href="#">Sport cars</a></li>
+                                        <li><a href="#">Trucks</a></li>
+                                        <li><a href="#">Convertables</a></li>
+                                        <li><a href="#">Pickups</a></li>
+                                        <li><a href="#">Buses</a></li>
+                                        <li><a href="#">Trailers</a></li>
+                                        <li><a href="#">Sport Utilities</a></li>
+                                        <li><a href="#">Vans</a></li>
+                                    </ul>
+
+                                </div>
+                    
+                                
+                   </div>
+
+                    <!-- test end -->
+
+            
+          </ul>
+        </li>
+      </ul>      
+    
+  <ul class="nav navbar-nav">
+        
+        <li class="dropdown" >
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Government <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu" style="width:1000px; background-color:aliceblue;">
+            <li><h3>Liberian Government</h3>
+
+
+                <!-- dropdown menu -->
+               <div id="gallery4" >
+                                <div style="float: left; padding: 5px;">
+                                    <a href="Content/Images/Liberia/travLiberia.jpg">
+                                        <img src="Content/Images/Liberia/travThumbnail1.jpg" title="Resort" /></a>
+                                </div>
+                                <div style="float: left; padding: 5px;">
+                                    <a href="Content/Images/Liberia/bella_casa.jpg">
+                                        <img src="Content/Images/Liberia/bella_casaThumb.jpg" title="Resort" /></a>
+                                </div>
+                                <div style="float: left; padding: 5px;">
+                                    <a href="Content/Images/Liberia/travLiberiaFirst.jpg">
+                                        <img src="Content/Images/Liberia/travThumbnail2.jpg" title="Resort" /></a>
+                                </div>
+                                <div style="float: left; padding-left: 25px; padding-right: 25px;">
+                                    <ul>
+                                        <li><a href="#">Sport cars</a></li>
+                                        <li><a href="#">Trucks</a></li>
+                                        <li><a href="#">Convertables</a></li>
+                                        <li><a href="#">Pickups</a></li>
+                                        <li><a href="#">Buses</a></li>
+                                        <li><a href="#">Trailers</a></li>
+                                        <li><a href="#">Sport Utilities</a></li>
+                                        <li><a href="#">Vans</a></li>
+                                    </ul>
+
+                                </div>
+                    <div style="float: left; padding-left: 25px; padding-right: 25px;">
+                                    <ul>
+                                        <li><a href="#">Sport cars</a></li>
+                                        <li><a href="#">Trucks</a></li>
+                                        <li><a href="#">Convertables</a></li>
+                                        <li><a href="#">Pickups</a></li>
+                                        <li><a href="#">Buses</a></li>
+                                        <li><a href="#">Trailers</a></li>
+                                        <li><a href="#">Sport Utilities</a></li>
+                                        <li><a href="#">Vans</a></li>
+                                    </ul>
+
+                                </div>
+                    
+                                
+                   </div>
+
+                    <!-- test end -->
+
+            
+          </ul>
+        </li>
+      </ul>      
+    
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+
+<!--test nav bar end -->
+
+  <div class="container body-content">
+
+
+
+
+        <script>
+            $(function () {
+                $(".button-slide").click(function () {
+                    $(".feedback").animate({
+                        width: 'toggle'
+                    });
+                });
+            });
+
+
+</script> 
+
+ <style type="text/css">
+     .contain {
+  position: fixed;
+  top: 180px;
+  left: 25px;
+  width: 360px;
+  height:320px;
+  z-index: 9999;
+ 
+  /*text-align: center;*/
+}
+.feedback {
+    color:white;
+  display: none;
+  border: solid 4px #000000;
+  /*background-color:#1d2126;*/
+   border-bottom-left-radius:6px;
+  border-bottom-right-radius:6px;
+  border-top-right-radius:6px;
+  background-color:#000000;  
+  -webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+  box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+}
+.button-slide {
+  position:fixed;
+  left:0px;
+  top:180px;
+ 
+  /*width: 120px;
+  padding: 2px;
+  margin: 0 auto;
+  background-color: #006699;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  -webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+  box-shadow: 0 1px 5px rgba(0,0,0,0.75);*/
+}
+
+</style>
+
+
+      <div class="contain">
+
+          <div class="feedback">
+              <fieldset>
+                  <legend>We would like to hear from you</legend>
+
+                  <div role="form"style="margin:6px;">
+                      <div class="form-group">
+                          <label for="name">Full Name</label>                         
+                          <asp:TextBox ID="TextName" runat="server" cssClass="form-control" TextMode="Search" Width="200"  ></asp:TextBox>
+                      </div>
+                      <div class="form-group">
+                          <label for="email">Email Address</label>
+                          <asp:TextBox ID="TextEmail" runat="server" cssClass="form-control" TextMode="Email" Width="200"  ></asp:TextBox>                          
+                      </div>
+                      <div class="form-group">
+                          <label for="comment">Message</label>
+                          <asp:TextBox ID="TextMessage" runat="server" cssClass="form-control"  TextMode="MultiLine" Rows="4" Width="340" ></asp:TextBox>                         
+                      </div>                                       
+                  
+                  <asp:Button ID="BtnSend" runat="server" Text="Send" class="btn btn-default" />
+                  </div>
+                  
+        
+              </fieldset>
+
+
+          </div>
+          <div>
+              <img src="images/feebackBlack.png" class="button-slide" />
+
+          </div>
+
+          
+
+
+      </div>
+
+      <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+            <footer style="background-color: maroon; color: white;">
+                <p>&copy; <%: DateTime.Now.Year %> - all-liberia.com</p>
+                <p>Website designed and maintained by Victor Etilo, 540-278-0005 </p>
+                <address>
+                    <strong>Email  <a href="mailto:victoretilo@all-liberia.com">support@all-liberia.com</a> with any comment or suggestion.</strong>
+                </address>
+            </footer>
+        </div>
+    </form>
+</body>
+</html>
